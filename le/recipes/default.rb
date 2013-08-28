@@ -31,4 +31,4 @@ end
 follow_logs()
 
 # Start the service
-execute "service logentries start"
+execute "service logentries restart"
