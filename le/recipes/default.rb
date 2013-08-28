@@ -1,4 +1,4 @@
-#
+
 # Author:: Caroline Fenlon <carfenlon@gmail.com>
 # Cookbook Name:: logentries
 # Recipe:: default
@@ -19,9 +19,9 @@
 execute "echo 'deb http://rep.logentries.com/ maverick main' >/etc/apt/sources.list.d/logentries.list"
 execute "gpg --keyserver pgp.mit.edu --recv-keys C43C79AD && gpg -a --export C43C79AD | apt-key add -"
 execute "apt-get update"
-execute "echo N | apt-get install --yes logentries"
+execute "apt-get install --yes logentries"
 execute "le register --user-key #{node[:le][:userkey]} --name='#{node[:le][:hostname]}'"
-execute "echo N | apt-get install --yes logentries-daemon"
+execute "apt-get install --yes logentries-daemon"
 
 class Chef::Recipe
   include FollowLogs
