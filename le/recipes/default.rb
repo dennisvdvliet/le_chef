@@ -21,7 +21,7 @@ execute "gpg --keyserver pgp.mit.edu --recv-keys C43C79AD && gpg -a --export C43
 execute "apt-get update"
 execute "apt-get install --yes logentries"
 execute "le register --user-key #{node[:le][:userkey]} --name='#{node[:le][:hostname]}'"
-execute "apt-get install --yes logentries-daemon"
+execute "apt-get install --yes -qq logentries-daemon"
 
 class Chef::Recipe
   include FollowLogs
